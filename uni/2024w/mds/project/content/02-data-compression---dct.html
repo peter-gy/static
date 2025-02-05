@@ -708,12 +708,16 @@ B = T^\top \, C \, T
 <span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="6e940f07" class="cell" data-tags="[&quot;ignore&quot;]" data-execution_count="10">
+<div id="2d2b81ed" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mds_2024w <span class="im">import</span> nb_gradio</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>nb_gradio()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>demo.launch(pwa<span class="op">=</span><span class="va">True</span>, show_api<span class="op">=</span><span class="va">False</span>, show_error<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="d04ce3ae" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of this cell set dynamically in Quarto filter step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 
@@ -733,6 +737,8 @@ B = T^\top \, C \, T
         <gradio-lite>
 import micropip
 await micropip.install('plotly==5.24.1');
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import gradio as gr
@@ -1076,7 +1082,7 @@ with gr.Blocks(css="""gradio-app {background: #222222 !important}""") as demo:
         ],
         outputs=[output_combined, output_heatmap, output_stats],
     )
-demo.launch(height=1600, pwa=True, show_api=False, show_error=True)
+demo.launch(pwa=True, show_api=False, show_error=True)
 
         </gradio-lite>
     </div>

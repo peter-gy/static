@@ -658,12 +658,16 @@ Adjust the exponent range to visualize the gap sizes between consecutive floatin
 <span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>            eps_button.click(fn<span class="op">=</span>gradio_machine_epsilon, inputs<span class="op">=</span>[], outputs<span class="op">=</span>eps_output)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="960e0404" class="cell" data-tags="[&quot;ignore&quot;]" data-execution_count="11">
+<div id="895ae4d1" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mds_2024w <span class="im">import</span> nb_gradio</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>nb_gradio()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>demo.launch(pwa<span class="op">=</span><span class="va">True</span>, show_api<span class="op">=</span><span class="va">False</span>, show_error<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="8a95d562" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of this cell set dynamically in Quarto filter step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 
@@ -683,6 +687,8 @@ Adjust the exponent range to visualize the gap sizes between consecutive floatin
         <gradio-lite>
 import micropip
 await micropip.install('plotly==5.24.1');
+
+
 import math
 import struct
 from fractions import Fraction
@@ -939,7 +945,7 @@ with gr.Blocks(css="""gradio-app {background: #222222 !important}""") as demo:
             eps_output = gr.JSON(label="Machine Epsilon and Next Float")
             eps_button = gr.Button("Show Machine Epsilon and Next Float")
             eps_button.click(fn=gradio_machine_epsilon, inputs=[], outputs=eps_output)
-demo.launch(height=1500, pwa=True, show_api=False, show_error=True)
+demo.launch(pwa=True, show_api=False, show_error=True)
 
         </gradio-lite>
     </div>

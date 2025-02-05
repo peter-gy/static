@@ -518,12 +518,16 @@ It overlays the decision boundary, the training points, and highlights the suppo
 <span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="8a6c6368" class="cell" data-tags="[&quot;ignore&quot;]" data-execution_count="7">
+<div id="d75906a0" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mds_2024w <span class="im">import</span> nb_gradio</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>nb_gradio()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>demo.launch(pwa<span class="op">=</span><span class="va">True</span>, show_api<span class="op">=</span><span class="va">False</span>, show_error<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="b298df6b" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of this cell set dynamically in Quarto filter step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 
@@ -543,6 +547,8 @@ It overlays the decision boundary, the training points, and highlights the suppo
         <gradio-lite>
 import micropip
 await micropip.install('plotly==5.24.1');
+
+
 import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
@@ -754,7 +760,7 @@ with gr.Blocks(
         inputs=[dataset, kernel_type, gamma, degree],
         outputs=[plot_output, json_output],
     )
-demo.launch(height=1000, pwa=True, show_api=False, show_error=True)
+demo.launch(pwa=True, show_api=False, show_error=True)
 
         </gradio-lite>
     </div>
