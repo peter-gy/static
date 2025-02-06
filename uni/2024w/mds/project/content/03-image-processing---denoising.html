@@ -64,6 +64,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../content/03-image-processing---edge-detection.html" rel="next">
+<link href="../content/03-image-processing---contrast.html" rel="prev">
+<link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-22381ab97ffb8a420d3841344730e94d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c5207b993351ca6ca43404819043327b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,6 +103,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -134,9 +143,10 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,83 +157,143 @@ window.Quarto = {
     <span class="navbar-title">Mathematics of Data Science</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../content/01-machine-numbers.html"> 
-<span class="menu-text">Machine Numbers</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-compression" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Compression</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-compression">    
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---dct.html">
- <span class="dropdown-text">Discrete Cosine Transform</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---huffman.html">
- <span class="dropdown-text">Huffman Encoding</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-image-processing" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Image Processing</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-image-processing">    
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---contrast.html">
- <span class="dropdown-text">Contrast Enhancement via Histogram Equalization</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---denoising.html">
- <span class="dropdown-text">Denoising</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---edge-detection.html">
- <span class="dropdown-text">Edge Detection</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../content/04-high-dimensional-data.html"> 
-<span class="menu-text">High Dimensional Data</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../content/05-dimension-reduction.html"> 
-<span class="menu-text">Dimension Reduction</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clustering" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Clustering</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-clustering">    
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---graph-cuts.html">
- <span class="dropdown-text">Graph Cuts</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---svm.html">
- <span class="dropdown-text">Support Vector Machines</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/peter-gy" target="_blank">
+            Author
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/03-image-processing---contrast.html">Image Processing</a></li><li class="breadcrumb-item"><a href="../content/03-image-processing---denoising.html">Denoising</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/01-machine-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Numbers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Compression</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---dct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Cosine Transform</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---huffman.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Huffman Encoding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Image Processing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---contrast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contrast Enhancement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---denoising.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Denoising</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---edge-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edge Detection</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/04-high-dimensional-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">High Dimensional Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/05-dimension-reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimension Reduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Clustering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---graph-cuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graph Cuts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---svm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Support Vector Machines</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -239,7 +309,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/03-image-processing---contrast.html">Image Processing</a></li><li class="breadcrumb-item"><a href="../content/03-image-processing---denoising.html">Denoising</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Denoising</h1>
 </div>
@@ -270,27 +340,19 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>In this notebook, we explore the concept of <strong>Denoising</strong> with a focus on mitigating Salt &amp; Pepper noise using a <strong>Median Filter</strong>. This type of noise and filtering operation is a staple in image processing for enhancing image quality.</p>
-<ul>
-<li><p><strong>Salt &amp; Pepper Noise:</strong></p>
-<ul>
-<li>This noise manifests as random pixel corruption, where a fraction <span class="math inline">\(\sigma\)</span> of pixels in a grayscale image <span class="math inline">\(f\)</span> are unexpectedly set to either 0 (“pepper”) or 1 (“salt”). Specifically, out of <span class="math inline">\(N\)</span> total pixels, <span class="math inline">\(N \cdot \sigma\)</span> will be affected. This noise drastically affects image quality without altering structural content.</li>
-</ul></li>
-<li><p><strong>Median Filtering:</strong></p>
-<ul>
-<li>We employ a median filter over a sliding window of size <span class="math inline">\(s\)</span>. For each pixel location <span class="math inline">\((i,j)\)</span>, the filter replaces its value with the median from the surrounding pixel values:</li>
-</ul>
+<p>In this notebook, we explore the concept of <strong>Denoising</strong> with a focus on mitigating Salt &amp; Pepper noise using a <strong>Median Filter</strong>.</p>
+<p><strong>Salt &amp; Pepper Noise</strong></p>
+<p>This noise manifests as random pixel corruption, where a fraction <span class="math inline">\(\sigma\)</span> of pixels in a grayscale image <span class="math inline">\(f\)</span> are unexpectedly set to either 0 (“pepper”) or 1 (“salt”). Specifically, out of <span class="math inline">\(N\)</span> total pixels, <span class="math inline">\(N \cdot \sigma\)</span> will be affected. This noise drastically affects image quality without altering structural content.</p>
+<p><strong>Median Filtering</strong></p>
+<p>We employ a median filter over a sliding window of size <span class="math inline">\(s\)</span>. For each pixel location <span class="math inline">\((i,j)\)</span>, the filter replaces its value with the median from the surrounding pixel values:</p>
 <p><span class="math display">\[
 g(i,j) = \operatorname{median}\{f(k,l) \mid (k,l) \in W_{ij}\}.
 \]</span></p>
-<ul>
-<li>This method is effective in noise reduction while preserving significant edges and details, due to the non-linear nature of the median statistic.</li>
-</ul></li>
-</ul>
+<p>This method is effective in noise reduction while preserving significant edges and details, due to the non-linear nature of the median statistic.</p>
 </section>
 <section id="python-implementation" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="python-implementation"><span class="header-section-number">2</span> Python Implementation</h2>
-<p>The following implementation illustrates how we inject salt &amp; pepper noise into an image. This function generates noise by random pixel corruption:</p>
+<p>The following implementation illustrates how we inject salt &amp; pepper noise into an image. The <code>add_salt_and_pepper_noise</code> function generates noise by random pixel corruption.</p>
 <div id="5b30c4eb" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
@@ -318,7 +380,7 @@ g(i,j) = \operatorname{median}\{f(k,l) \mid (k,l) \in W_{ij}\}.
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> noisy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>The <code>median_filter</code> function implements the denoising technique by applying a median operation over a locally sliding window. This function is crucial for preserving edges:</p>
+<p>The <code>median_filter</code> function implements the denoising technique by applying a median operation over a locally sliding window. This function is crucial for preserving edges.</p>
 <div id="fcee676a" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
@@ -350,9 +412,10 @@ g(i,j) = \operatorname{median}\{f(k,l) \mid (k,l) \in W_{ij}\}.
 </section>
 <section id="interactive-dashboard" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="interactive-dashboard"><span class="header-section-number">3</span> Interactive Dashboard</h2>
-<p>The Gradio-powered dashboard provides an interactive avenue for experimenting with noise levels and filter window sizes on uploaded or default images. Components include:</p>
+<p>The dashboard below provides allows for experimentation with noise levels and filter window sizes on uploaded or default images.</p>
+<p>Components include:</p>
 <ul>
-<li><strong>Image Upload and Processing:</strong> Users can add custom images or use a default one.</li>
+<li><strong>Image Upload and Processing:</strong> You can add custom images or use a default one.</li>
 <li><strong>Adjustable Noise Ratio &amp; Filter Size</strong>: Controls to vary noise and window parameters.</li>
 <li><strong>Visual Comparison:</strong> Side-by-side comparison of the noisy and denoised outputs.</li>
 <li><strong>Processing Insights:</strong> JSON output details the parameters and steps applied.</li>
@@ -423,7 +486,7 @@ g(i,j) = \operatorname{median}\{f(k,l) \mid (k,l) \in W_{ij}\}.
 <span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    image_input <span class="op">=</span> gr.Image(label<span class="op">=</span><span class="st">"Upload Image"</span>, value<span class="op">=</span>DEFAULT_IMAGE)</span>
 <span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Row():</span>
 <span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>        noise_ratio_slider <span class="op">=</span> gr.Slider(</span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>            minimum<span class="op">=</span><span class="fl">0.0</span>, maximum<span class="op">=</span><span class="fl">0.5</span>, step<span class="op">=</span><span class="fl">0.01</span>, value<span class="op">=</span><span class="fl">0.1</span>, label<span class="op">=</span><span class="st">"Noise Ratio"</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>            minimum<span class="op">=</span><span class="fl">0.0</span>, maximum<span class="op">=</span><span class="fl">0.5</span>, step<span class="op">=</span><span class="fl">0.01</span>, value<span class="op">=</span><span class="fl">0.4</span>, label<span class="op">=</span><span class="st">"Noise Ratio"</span></span>
 <span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>        )</span>
 <span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>        window_size_slider <span class="op">=</span> gr.Slider(</span>
 <span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>            minimum<span class="op">=</span><span class="dv">3</span>,</span>
@@ -450,11 +513,13 @@ g(i,j) = \operatorname{median}\{f(k,l) \mid (k,l) \in W_{ij}\}.
 <span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> process_image(image, noise_ratio, <span class="bu">int</span>(window_size))</span>
 <span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> results[<span class="st">"Noisy Image"</span>], results[<span class="st">"Denoised Image"</span>], results[<span class="st">"Details"</span>]</span>
 <span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    process_button.click(</span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>        process_wrapper,</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    kwargs <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>        fn<span class="op">=</span>process_wrapper,</span>
 <span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span>[image_input, noise_ratio_slider, window_size_slider],</span>
 <span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span>[output_noisy, output_denoised, output_details],</span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    process_button.click(<span class="op">**</span>kwargs)</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>    demo.load(<span class="op">**</span>kwargs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="5036c2cd" class="cell" data-execution_count="6">
@@ -463,7 +528,7 @@ g(i,j) = \operatorname{median}\{f(k,l) \mid (k,l) \in W_{ij}\}.
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>demo.launch(pwa<span class="op">=</span><span class="va">True</span>, show_api<span class="op">=</span><span class="va">False</span>, show_error<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="eed848f4" class="cell">
+<div id="c16b8739" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of this cell set dynamically in Quarto filter step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -596,7 +661,7 @@ with gr.Blocks(
     image_input = gr.Image(label="Upload Image", value=DEFAULT_IMAGE)
     with gr.Row():
         noise_ratio_slider = gr.Slider(
-            minimum=0.0, maximum=0.5, step=0.01, value=0.1, label="Noise Ratio"
+            minimum=0.0, maximum=0.5, step=0.01, value=0.4, label="Noise Ratio"
         )
         window_size_slider = gr.Slider(
             minimum=3,
@@ -623,11 +688,13 @@ with gr.Blocks(
         results = process_image(image, noise_ratio, int(window_size))
         return results["Noisy Image"], results["Denoised Image"], results["Details"]
 
-    process_button.click(
-        process_wrapper,
+    kwargs = dict(
+        fn=process_wrapper,
         inputs=[image_input, noise_ratio_slider, window_size_slider],
         outputs=[output_noisy, output_denoised, output_details],
     )
+    process_button.click(**kwargs)
+    demo.load(**kwargs)
 demo.launch(pwa=True, show_api=False, show_error=True)
 
         </gradio-lite>
@@ -1057,6 +1124,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../content/03-image-processing---contrast.html" class="pagination-link" aria-label="Contrast Enhancement">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Contrast Enhancement</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../content/03-image-processing---edge-detection.html" class="pagination-link" aria-label="Edge Detection">
+        <span class="nav-page-text">Edge Detection</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

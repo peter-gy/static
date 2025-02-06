@@ -64,6 +64,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../content/02-data-compression---huffman.html" rel="next">
+<link href="../content/01-machine-numbers.html" rel="prev">
+<link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-22381ab97ffb8a420d3841344730e94d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c5207b993351ca6ca43404819043327b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,6 +103,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -134,9 +143,10 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,83 +157,143 @@ window.Quarto = {
     <span class="navbar-title">Mathematics of Data Science</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../content/01-machine-numbers.html"> 
-<span class="menu-text">Machine Numbers</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-compression" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Compression</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-compression">    
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---dct.html">
- <span class="dropdown-text">Discrete Cosine Transform</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---huffman.html">
- <span class="dropdown-text">Huffman Encoding</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-image-processing" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Image Processing</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-image-processing">    
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---contrast.html">
- <span class="dropdown-text">Contrast Enhancement via Histogram Equalization</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---denoising.html">
- <span class="dropdown-text">Denoising</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---edge-detection.html">
- <span class="dropdown-text">Edge Detection</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../content/04-high-dimensional-data.html"> 
-<span class="menu-text">High Dimensional Data</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../content/05-dimension-reduction.html"> 
-<span class="menu-text">Dimension Reduction</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clustering" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Clustering</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-clustering">    
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---graph-cuts.html">
- <span class="dropdown-text">Graph Cuts</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---svm.html">
- <span class="dropdown-text">Support Vector Machines</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/peter-gy" target="_blank">
+            Author
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/02-data-compression---dct.html">Data Compression</a></li><li class="breadcrumb-item"><a href="../content/02-data-compression---dct.html">Discrete Cosine Transform</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/01-machine-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Numbers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Compression</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---dct.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Discrete Cosine Transform</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---huffman.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Huffman Encoding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Image Processing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---contrast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contrast Enhancement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---denoising.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Denoising</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---edge-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edge Detection</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/04-high-dimensional-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">High Dimensional Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/05-dimension-reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimension Reduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Clustering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---graph-cuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graph Cuts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---svm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Support Vector Machines</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -239,7 +309,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/02-data-compression---dct.html">Data Compression</a></li><li class="breadcrumb-item"><a href="../content/02-data-compression---dct.html">Discrete Cosine Transform</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Discrete Cosine Transform</h1>
 </div>
@@ -274,10 +344,10 @@ window.Quarto = {
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>This notebook illustrates the concepts behind JPEG compression by employing the 2D Discrete Cosine Transform (DCT) on a grayscale image. The algorithm operates by segmenting the image into smaller blocks, computing the DCT coefficients for each, and performing <strong>thresholding</strong> to zero out insignificant high-frequency coefficients. This process takes advantage of the fact that many coefficients, particularly those representing high frequencies, can be negligible and discarded without significantly affecting the perceived image quality, thus facilitating compression.</p>
-<ul>
-<li><strong>Image Partitioning:</strong> For an image <span class="math inline">\(A \in \mathbb{R}^{M \times N}\)</span>, we divide it into non-overlapping blocks of size <span class="math inline">\(n \times n\)</span> (typically <span class="math inline">\(n = 8\)</span>).</li>
-<li><strong>2D DCT for a Block:</strong> The transform for a block <span class="math inline">\(B\)</span> is defined as:</li>
-</ul>
+<p><strong>Image Partitioning</strong></p>
+<p>For an image <span class="math inline">\(A \in \mathbb{R}^{M \times N}\)</span>, we divide it into non-overlapping blocks of size <span class="math inline">\(n \times n\)</span> (typically <span class="math inline">\(n = 8\)</span>).</p>
+<p><strong>2D DCT for a Block</strong></p>
+<p>The transform for a block <span class="math inline">\(B\)</span> is defined as:</p>
 <p><span class="math display">\[
 c_{k,l} = \alpha(k)\alpha(l) \sum_{r=0}^{n-1} \sum_{s=0}^{n-1} B_{r,s} \cos\left(\frac{\pi (2r+1)k}{2n}\right) \cos\left(\frac{\pi (2s+1)l}{2n}\right)
 \]</span></p>
@@ -289,31 +359,17 @@ c_{k,l} = \alpha(k)\alpha(l) \sum_{r=0}^{n-1} \sum_{s=0}^{n-1} B_{r,s} \cos\left
 \sqrt{\frac{2}{n}}, &amp; k &gt; 0.
 \end{cases}
 \]</span></p>
-<ul>
-<li><strong>Inverse DCT (IDCT):</strong> Reconstructed via:</li>
-</ul>
+<p><strong>Inverse DCT (IDCT)</strong></p>
+<p>Reconstructed via:</p>
 <p><span class="math display">\[
 B_{r,s} = \sum_{k=0}^{n-1} \sum_{l=0}^{n-1} \alpha(k)\alpha(l) \, c_{k,l} \cos\left(\frac{\pi (2r+1)k}{2n}\right) \cos\left(\frac{\pi (2s+1)l}{2n}\right).
 \]</span></p>
-<ul>
-<li><strong>Thresholding:</strong> Through thresholding, small coefficients are nullified, maintaining core low-frequency content while reducing data size.</li>
-</ul>
-<p>The interactive dashboard enables you to adjust:</p>
-<ul>
-<li><strong>Threshold:</strong> Minimum coefficient value retained during compression.</li>
-<li><strong>Block Size:</strong> Controls the granularity of the transformation.</li>
-<li><strong>Image Input:</strong> Upload an image or select from sample options like <em>cameraman</em>, <em>coins</em>, or <em>moon</em>.</li>
-</ul>
-<p>You’ll observe:</p>
-<ul>
-<li><strong>Original vs Reconstructed Images:</strong> Visual comparison post-compression.</li>
-<li><strong>DCT Coefficients Heatmap:</strong> First block coefficient visualization using Plotly.</li>
-<li><strong>Compression Statistics:</strong> JSON data illustrating nonzero coefficients and compression ratios.</li>
-</ul>
+<p><strong>Thresholding</strong></p>
+<p>Through thresholding, small coefficients are nullified, maintaining core low-frequency content while reducing data size.</p>
 </section>
 <section id="python-implementation" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="python-implementation"><span class="header-section-number">2</span> Python Implementation</h2>
-<p>Let’s begin by constructing the DCT transformation matrix <span class="math inline">\(T\)</span> with dimensions <span class="math inline">\(n \times n\)</span>, whose elements are derived as:</p>
+<p>The <code>dct_matrix</code> function constructs the DCT transformation matrix <span class="math inline">\(T\)</span> with dimensions <span class="math inline">\(n \times n\)</span>, whose elements are derived as:</p>
 <p><span class="math display">\[
 T_{k,r} = \alpha(k) \cos\left(\frac{\pi (2r+1)k}{2n}\right)
 \]</span></p>
@@ -325,7 +381,6 @@ C = T \, B \, T^\top
 <p><span class="math display">\[
 B = T^\top \, C \, T
 \]</span></p>
-<p>Here’s the implementation for generating the transformation matrix and applying DCT and IDCT:</p>
 <div id="19eb5f5d" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
@@ -454,7 +509,7 @@ B = T^\top \, C \, T
 <span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [[idct2(block) <span class="cf">for</span> block <span class="kw">in</span> row] <span class="cf">for</span> row <span class="kw">in</span> blocks]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Thresholding is essential for compression by zeroing out small coefficients while preserving important information.</p>
+<p>The <code>threshold_coefficients</code> function implements the above-discussed thresholding, enabling compression by zeroing out small coefficients while preserving important information.</p>
 <div id="488314c3" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
@@ -618,11 +673,17 @@ B = T^\top \, C \, T
 </section>
 <section id="interactive-dashboard" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="interactive-dashboard"><span class="header-section-number">3</span> Interactive Dashboard</h2>
-<p>Now, let’s engage with the interactive dashboard, empowering users to fine-tune the DCT compression threshold and block size, and effortlessly switch between image uploads and preset samples. It presents:</p>
+<p>The dashboard below enables the adjustment of various compression-related parameters:</p>
 <ul>
-<li><strong>Side-by-Side Image Comparison:</strong> Examine the contrast between original and reconstructed images.</li>
-<li><strong>DCT Coefficients Heatmap:</strong> Visualize the spectra of the first block.</li>
-<li><strong>Compression Insights:</strong> Powered by JSON data, revealing metrics like nonzero coefficient tally and compression efficiency.</li>
+<li><strong>Threshold:</strong> Minimum coefficient value retained during compression.</li>
+<li><strong>Block Size:</strong> Controls the granularity of the transformation.</li>
+<li><strong>Image Input:</strong> Upload an image or select from sample options like <em>cameraman</em>, <em>coins</em>, or <em>moon</em>.</li>
+</ul>
+<p>You’ll observe:</p>
+<ul>
+<li><strong>Original vs Reconstructed Images:</strong> Visual comparison post-compression.</li>
+<li><strong>DCT Coefficients Heatmap:</strong> First block coefficient visualization using Plotly.</li>
+<li><strong>Compression Statistics:</strong> JSON data illustrating nonzero coefficients and compression ratios.</li>
 </ul>
 <div id="9a0d81af" class="cell" data-execution_count="8">
 <details class="code-fold">
@@ -670,42 +731,41 @@ B = T^\top \, C \, T
 <span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> combined_img, heatmap_fig, summary</span>
 <span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> gr.Blocks(css<span class="op">=</span><span class="st">"""gradio-app {background: #222222 !important}"""</span>) <span class="im">as</span> demo:</span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    gr.Markdown(</span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>        <span class="st">"""</span></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="st">    # JPEG Compression via Discrete Cosine Transform (DCT)</span></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Row():</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>        threshold_slider <span class="op">=</span> gr.Slider(</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>            minimum<span class="op">=</span><span class="dv">0</span>, maximum<span class="op">=</span><span class="dv">100</span>, step<span class="op">=</span><span class="fl">0.5</span>, value<span class="op">=</span><span class="dv">10</span>, label<span class="op">=</span><span class="st">"Threshold"</span></span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>        block_size_input <span class="op">=</span> gr.Number(value<span class="op">=</span><span class="dv">8</span>, label<span class="op">=</span><span class="st">"Block Size (n x n)"</span>, precision<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>    uploaded_image_input <span class="op">=</span> gr.Image(<span class="bu">type</span><span class="op">=</span><span class="st">"numpy"</span>, label<span class="op">=</span><span class="st">"Upload your image (optional)"</span>)</span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>    sample_choice_input <span class="op">=</span> gr.Dropdown(</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>        choices<span class="op">=</span>[<span class="st">"cameraman"</span>, <span class="st">"coins"</span>, <span class="st">"moon"</span>],</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>        value<span class="op">=</span><span class="st">"cameraman"</span>,</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">"Or select a sample image"</span>,</span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>    output_combined <span class="op">=</span> gr.Image(label<span class="op">=</span><span class="st">"Original vs Reconstructed Image"</span>)</span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>    output_heatmap <span class="op">=</span> gr.Plot(label<span class="op">=</span><span class="st">"DCT Coefficients Heatmap (First Block)"</span>)</span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>    output_stats <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"Compression Statistics"</span>)</span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>    btn <span class="op">=</span> gr.Button(<span class="st">"Apply Compression"</span>)</span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>    btn.click(</span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>        fn<span class="op">=</span>gradio_interface,</span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span>[</span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>            threshold_slider,</span>
-<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>            block_size_input,</span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>            uploaded_image_input,</span>
-<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>            sample_choice_input,</span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>        ],</span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span>[output_combined, output_heatmap, output_stats],</span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> gr.Blocks(</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    css<span class="op">=</span><span class="st">"""gradio-app {background: #222222 !important}"""</span>,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"JPEG Compression via Discrete Cosine Transform (DCT)"</span>,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>) <span class="im">as</span> demo:</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Row():</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>        threshold_slider <span class="op">=</span> gr.Slider(</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>            minimum<span class="op">=</span><span class="dv">0</span>, maximum<span class="op">=</span><span class="dv">100</span>, step<span class="op">=</span><span class="fl">0.5</span>, value<span class="op">=</span><span class="dv">75</span>, label<span class="op">=</span><span class="st">"Threshold"</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>        block_size_input <span class="op">=</span> gr.Number(value<span class="op">=</span><span class="dv">8</span>, label<span class="op">=</span><span class="st">"Block Size (n x n)"</span>, precision<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    uploaded_image_input <span class="op">=</span> gr.Image(<span class="bu">type</span><span class="op">=</span><span class="st">"numpy"</span>, label<span class="op">=</span><span class="st">"Upload your image (optional)"</span>)</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    sample_choice_input <span class="op">=</span> gr.Dropdown(</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>        choices<span class="op">=</span>[<span class="st">"cameraman"</span>, <span class="st">"coins"</span>, <span class="st">"moon"</span>],</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>        value<span class="op">=</span><span class="st">"cameraman"</span>,</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">"Or select a sample image"</span>,</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>    output_combined <span class="op">=</span> gr.Image(label<span class="op">=</span><span class="st">"Original vs Reconstructed Image"</span>)</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>    output_heatmap <span class="op">=</span> gr.Plot(label<span class="op">=</span><span class="st">"DCT Coefficients Heatmap (First Block)"</span>)</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>    output_stats <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"Compression Statistics"</span>)</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>    btn <span class="op">=</span> gr.Button(<span class="st">"Apply Compression"</span>)</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>    kwargs <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>        fn<span class="op">=</span>gradio_interface,</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span>[</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>            threshold_slider,</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>            block_size_input,</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>            uploaded_image_input,</span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>            sample_choice_input,</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span>[output_combined, output_heatmap, output_stats],</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>    btn.click(<span class="op">**</span>kwargs)</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>    demo.load(<span class="op">**</span>kwargs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="2d2b81ed" class="cell" data-execution_count="9">
@@ -714,7 +774,7 @@ B = T^\top \, C \, T
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>demo.launch(pwa<span class="op">=</span><span class="va">True</span>, show_api<span class="op">=</span><span class="va">False</span>, show_error<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="d04ce3ae" class="cell">
+<div id="287a92e5" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of this cell set dynamically in Quarto filter step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1046,16 +1106,13 @@ def gradio_interface(
     return combined_img, heatmap_fig, summary
 
 
-with gr.Blocks(css="""gradio-app {background: #222222 !important}""") as demo:
-    gr.Markdown(
-        """
-    # JPEG Compression via Discrete Cosine Transform (DCT)
-    """
-    )
-
+with gr.Blocks(
+    css="""gradio-app {background: #222222 !important}""",
+    title="JPEG Compression via Discrete Cosine Transform (DCT)",
+) as demo:
     with gr.Row():
         threshold_slider = gr.Slider(
-            minimum=0, maximum=100, step=0.5, value=10, label="Threshold"
+            minimum=0, maximum=100, step=0.5, value=75, label="Threshold"
         )
         block_size_input = gr.Number(value=8, label="Block Size (n x n)", precision=0)
 
@@ -1072,7 +1129,7 @@ with gr.Blocks(css="""gradio-app {background: #222222 !important}""") as demo:
 
     btn = gr.Button("Apply Compression")
 
-    btn.click(
+    kwargs = dict(
         fn=gradio_interface,
         inputs=[
             threshold_slider,
@@ -1082,6 +1139,8 @@ with gr.Blocks(css="""gradio-app {background: #222222 !important}""") as demo:
         ],
         outputs=[output_combined, output_heatmap, output_stats],
     )
+    btn.click(**kwargs)
+    demo.load(**kwargs)
 demo.launch(pwa=True, show_api=False, show_error=True)
 
         </gradio-lite>
@@ -1511,6 +1570,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../content/01-machine-numbers.html" class="pagination-link" aria-label="Machine Numbers">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Machine Numbers</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../content/02-data-compression---huffman.html" class="pagination-link" aria-label="Huffman Encoding">
+        <span class="nav-page-text">Huffman Encoding</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

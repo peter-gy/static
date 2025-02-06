@@ -64,6 +64,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../content/05-dimension-reduction.html" rel="next">
+<link href="../content/03-image-processing---edge-detection.html" rel="prev">
+<link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-22381ab97ffb8a420d3841344730e94d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c5207b993351ca6ca43404819043327b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,6 +103,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -134,9 +143,10 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,83 +157,143 @@ window.Quarto = {
     <span class="navbar-title">Mathematics of Data Science</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../content/01-machine-numbers.html"> 
-<span class="menu-text">Machine Numbers</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-compression" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Compression</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-compression">    
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---dct.html">
- <span class="dropdown-text">Discrete Cosine Transform</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---huffman.html">
- <span class="dropdown-text">Huffman Encoding</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-image-processing" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Image Processing</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-image-processing">    
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---contrast.html">
- <span class="dropdown-text">Contrast Enhancement via Histogram Equalization</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---denoising.html">
- <span class="dropdown-text">Denoising</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---edge-detection.html">
- <span class="dropdown-text">Edge Detection</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="../content/04-high-dimensional-data.html" aria-current="page"> 
-<span class="menu-text">High Dimensional Data</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../content/05-dimension-reduction.html"> 
-<span class="menu-text">Dimension Reduction</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clustering" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Clustering</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-clustering">    
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---graph-cuts.html">
- <span class="dropdown-text">Graph Cuts</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---svm.html">
- <span class="dropdown-text">Support Vector Machines</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/peter-gy" target="_blank">
+            Author
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/04-high-dimensional-data.html">High Dimensional Data</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/01-machine-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Numbers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Compression</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---dct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Cosine Transform</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---huffman.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Huffman Encoding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Image Processing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---contrast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contrast Enhancement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---denoising.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Denoising</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---edge-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edge Detection</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/04-high-dimensional-data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">High Dimensional Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/05-dimension-reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimension Reduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Clustering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---graph-cuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graph Cuts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---svm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Support Vector Machines</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -269,38 +339,31 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>High-dimensional data analysis is essential in modern statistics and machine learning. It involves understanding data where the number of features (dimensions) greatly exceeds the number of samples. This notebook explores several fundamental concepts and theoretical tools to navigate and analyze high-dimensional datasets effectively:</p>
-<ol type="1">
-<li><p><strong>Chebyshev’s Inequality</strong>: A statistical bound that estimates the probability deviations of a random variable from its mean, applicable to any distribution with a finite variance. Formally:</p>
+<p>High-dimensional data analysis is a common requirement in modern statistics and machine learning. It involves understanding data where the number of features (dimensions) greatly exceeds the number of samples. This notebook explores several fundamental concepts and theoretical tools to navigate and analyze high-dimensional datasets effectively.</p>
+<p><strong>Chebyshev’s Inequality</strong></p>
+<p>A statistical bound that estimates the probability deviations of a random variable from its mean, applicable to any distribution with a finite variance. Formally:</p>
 <p><span class="math display">\[
 P(|X - EX| \geq t) \leq \frac{\text{Var}(X)}{t^2}
 \]</span></p>
-<p>We demonstrate this using a uniformly distributed random variable to show how bounds hold against actual probability calculations.</p></li>
-<li><p><strong>Weak Law of Large Numbers (WLLN)</strong>:</p>
-<ul>
-<li><p>This principle asserts that, with an increasing number of independent samples, the sample mean approaches the expected value with high probability:</p>
+<p>We demonstrate this using a uniformly distributed random variable to show how bounds hold against actual probability calculations.</p>
+<p><strong>Weak Law of Large Numbers (WLLN)</strong></p>
+<p>This principle asserts that, with an increasing number of independent samples, the sample mean approaches the expected value with high probability</p>
 <p><span class="math display">\[
 \lim_{n \to \infty} P(|S_n - \mu| \geq \epsilon) = 0, \quad \forall \epsilon &gt; 0
-\]</span></p></li>
-<li><p>We illustrate this with Bernoulli trials to observe convergence behavior.</p></li>
-</ul></li>
-<li><p><strong>High-dimensional Geometry</strong>:</p>
-<ul>
-<li><p>As dimensionality increases, random vectors tend toward orthogonality (they become nearly perpendicular). For independent vectors drawn from a normal distribution:</p>
+\]</span></p>
+<p>We illustrate this with Bernoulli trials to observe convergence behavior.</p>
+<p><strong>High-dimensional Geometry</strong></p>
+<p>As dimensionality increases, random vectors tend toward orthogonality (they become nearly perpendicular). For independent vectors drawn from a normal distribution:</p>
 <p><span class="math display">\[
 P\left(\frac{| \langle X, Y \rangle |}{||X|| \cdot ||Y||} \geq t \right) \leq \frac{1}{dt^2}
-\]</span></p></li>
-<li><p>As dimensions grow, vector angles tend to small values infrequently, highlighting dimensionality’s role.</p></li>
-</ul></li>
-<li><p><strong>Johnson-Lindenstrauss Lemma</strong>:</p>
-<ul>
-<li>An important dimensionality reduction result, ensuring that high-dimensional data can be projected into lower-dimensional spaces with minimal distortion of pairwise distances.</li>
-</ul></li>
-</ol>
+\]</span></p>
+<p>As dimensions grow, vector angles tend to small values infrequently, highlighting dimensionality’s role.</p>
+<p><strong>Johnson-Lindenstrauss Lemma</strong></p>
+<p>An important dimensionality reduction result, ensuring that high-dimensional data can be projected into lower-dimensional spaces with minimal distortion of pairwise distances.</p>
 </section>
 <section id="python-implementation" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="python-implementation"><span class="header-section-number">2</span> Python Implementation</h2>
-<p>Implementing Chebyshev’s inequality for a uniformly distributed random variable, we compare actual and theoretical probabilities:</p>
+<p>Implementing Chebyshev’s inequality for a uniformly distributed random variable, we compare actual and theoretical probabilities.</p>
 <div id="98ae4951" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
@@ -322,7 +385,7 @@ P\left(\frac{| \langle X, Y \rangle |}{||X|| \cdot ||Y||} \geq t \right) \leq \f
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> actual_prob, bound_prob, stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Simulate the Weak Law of Large Numbers (WLLN) using Bernoulli trials and observe how sample means approach the expected value:</p>
+<p>We simulate the Weak Law of Large Numbers (WLLN) using Bernoulli trials and observe how sample means approach the expected value.</p>
 <div id="8917a45d" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
@@ -339,7 +402,7 @@ P\left(\frac{| \langle X, Y \rangle |}{||X|| \cdot ||Y||} \geq t \right) \leq \f
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Understand the geometry of high dimensions by checking the orthogonality between random vectors:</p>
+<p>The <code>high_dim_orthogonality</code> function helps us to understand the geometry of high dimensions by checking the orthogonality between random vectors:</p>
 <div id="5bd3cdad" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
@@ -358,7 +421,7 @@ P\left(\frac{| \langle X, Y \rangle |}{||X|| \cdot ||Y||} \geq t \right) \leq \f
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Perform random projection as per the Johnson-Lindenstrauss Lemma to dimensionality reduction while preserving distances:</p>
+<p>With <code>johnson_lindenstrauss_project</code> we perform random projection as per the Johnson-Lindenstrauss Lemma to dimensionality reduction while preserving distances.</p>
 <div id="07be6cbf" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
@@ -372,7 +435,6 @@ P\left(\frac{| \langle X, Y \rangle |}{||X|| \cdot ||Y||} \geq t \right) \leq \f
 </section>
 <section id="interactive-dashboard" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="interactive-dashboard"><span class="header-section-number">3</span> Interactive Dashboard</h2>
-<p>Using Gradio, this interactive interface allows exploring theoretical concepts with adjustable parameters and visualization:</p>
 <div id="8f4569e6" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
@@ -403,39 +465,42 @@ P\left(\frac{| \langle X, Y \rangle |}{||X|| \cdot ||Y||} \geq t \right) \leq \f
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> fig, cheb_json</span>
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        t_input.change(update_cheb, t_input, [cheb_plot, cheb_json])</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Tab(<span class="st">"Weak Law of Large Numbers"</span>):</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        n_input <span class="op">=</span> gr.Slider(<span class="dv">10</span>, <span class="dv">1000</span>, value<span class="op">=</span><span class="dv">100</span>, step<span class="op">=</span><span class="dv">10</span>, label<span class="op">=</span><span class="st">"Sample size n"</span>)</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        wlln_plot <span class="op">=</span> gr.Plot()</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">def</span> update_wlln(n):</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            means <span class="op">=</span> [wlln_simulation(<span class="bu">int</span>(n))[<span class="st">"sample_means_mean"</span>] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>)]</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            fig <span class="op">=</span> px.line(</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span><span class="bu">range</span>(<span class="dv">100</span>),</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span>means,</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                labels<span class="op">=</span>{<span class="st">"x"</span>: <span class="st">"Trial"</span>, <span class="st">"y"</span>: <span class="st">"Sample Mean"</span>},</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="st">"Convergence of Sample Means"</span>,</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>            fig.add_hline(y<span class="op">=</span><span class="fl">0.5</span>, line_dash<span class="op">=</span><span class="st">"dash"</span>)</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> fig</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        n_input.change(update_wlln, n_input, wlln_plot)</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Tab(<span class="st">"High-D Orthogonality"</span>):</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        dim_input <span class="op">=</span> gr.Slider(<span class="dv">2</span>, <span class="dv">1000</span>, value<span class="op">=</span><span class="dv">100</span>, label<span class="op">=</span><span class="st">"Dimension d"</span>)</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        angle_plot <span class="op">=</span> gr.Plot()</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        angle_stats <span class="op">=</span> gr.JSON()</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        <span class="kw">def</span> update_angles(d):</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>            stats <span class="op">=</span> high_dim_orthogonality(<span class="bu">int</span>(d))</span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>            angles <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span> <span class="op">/</span> np.sqrt(d), <span class="dv">1000</span>)</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>            fig <span class="op">=</span> px.histogram(</span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>                angles, nbins<span class="op">=</span><span class="dv">50</span>, title<span class="op">=</span><span class="st">"Distribution of cosθ in High Dimensions"</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>            angle_stats <span class="op">=</span> stats</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> fig, angle_stats</span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>        dim_input.change(update_angles, dim_input, [angle_plot, angle_stats])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        demo.load(update_cheb, t_input, [cheb_plot, cheb_json])</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Tab(<span class="st">"Weak Law of Large Numbers"</span>):</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        n_input <span class="op">=</span> gr.Slider(<span class="dv">10</span>, <span class="dv">1000</span>, value<span class="op">=</span><span class="dv">100</span>, step<span class="op">=</span><span class="dv">10</span>, label<span class="op">=</span><span class="st">"Sample size n"</span>)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        wlln_plot <span class="op">=</span> gr.Plot()</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">def</span> update_wlln(n):</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            means <span class="op">=</span> [wlln_simulation(<span class="bu">int</span>(n))[<span class="st">"sample_means_mean"</span>] <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>)]</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>            fig <span class="op">=</span> px.line(</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span><span class="bu">range</span>(<span class="dv">100</span>),</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span>means,</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                labels<span class="op">=</span>{<span class="st">"x"</span>: <span class="st">"Trial"</span>, <span class="st">"y"</span>: <span class="st">"Sample Mean"</span>},</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>                title<span class="op">=</span><span class="st">"Convergence of Sample Means"</span>,</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            fig.add_hline(y<span class="op">=</span><span class="fl">0.5</span>, line_dash<span class="op">=</span><span class="st">"dash"</span>)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> fig</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        n_input.change(update_wlln, n_input, wlln_plot)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        demo.load(update_wlln, n_input, wlln_plot)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Tab(<span class="st">"High-D Orthogonality"</span>):</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        dim_input <span class="op">=</span> gr.Slider(<span class="dv">2</span>, <span class="dv">1000</span>, value<span class="op">=</span><span class="dv">100</span>, label<span class="op">=</span><span class="st">"Dimension d"</span>)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        angle_plot <span class="op">=</span> gr.Plot()</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        angle_stats <span class="op">=</span> gr.JSON()</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>        <span class="kw">def</span> update_angles(d):</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>            stats <span class="op">=</span> high_dim_orthogonality(<span class="bu">int</span>(d))</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>            angles <span class="op">=</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span> <span class="op">/</span> np.sqrt(d), <span class="dv">1000</span>)</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>            fig <span class="op">=</span> px.histogram(</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>                angles, nbins<span class="op">=</span><span class="dv">50</span>, title<span class="op">=</span><span class="st">"Distribution of cosθ in High Dimensions"</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>            angle_stats <span class="op">=</span> stats</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> fig, angle_stats</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>        dim_input.change(update_angles, dim_input, [angle_plot, angle_stats])</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>        demo.load(update_angles, dim_input, [angle_plot, angle_stats])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="c32f0e81" class="cell" data-execution_count="7">
@@ -444,7 +509,7 @@ P\left(\frac{| \langle X, Y \rangle |}{||X|| \cdot ||Y||} \geq t \right) \leq \f
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>demo.launch(pwa<span class="op">=</span><span class="va">True</span>, show_api<span class="op">=</span><span class="va">False</span>, show_error<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="3d2c3c03" class="cell">
+<div id="0bafbb0e" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of this cell set dynamically in Quarto filter step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -545,6 +610,7 @@ with gr.Blocks(
             return fig, cheb_json
 
         t_input.change(update_cheb, t_input, [cheb_plot, cheb_json])
+        demo.load(update_cheb, t_input, [cheb_plot, cheb_json])
 
     with gr.Tab("Weak Law of Large Numbers"):
         n_input = gr.Slider(10, 1000, value=100, step=10, label="Sample size n")
@@ -562,6 +628,7 @@ with gr.Blocks(
             return fig
 
         n_input.change(update_wlln, n_input, wlln_plot)
+        demo.load(update_wlln, n_input, wlln_plot)
 
     with gr.Tab("High-D Orthogonality"):
         dim_input = gr.Slider(2, 1000, value=100, label="Dimension d")
@@ -578,6 +645,7 @@ with gr.Blocks(
             return fig, angle_stats
 
         dim_input.change(update_angles, dim_input, [angle_plot, angle_stats])
+        demo.load(update_angles, dim_input, [angle_plot, angle_stats])
 demo.launch(pwa=True, show_api=False, show_error=True)
 
         </gradio-lite>
@@ -1007,6 +1075,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../content/03-image-processing---edge-detection.html" class="pagination-link" aria-label="Edge Detection">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Edge Detection</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../content/05-dimension-reduction.html" class="pagination-link" aria-label="Dimension Reduction">
+        <span class="nav-page-text">Dimension Reduction</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../content/06-clustering---graph-cuts.html" rel="prev">
+<link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-22381ab97ffb8a420d3841344730e94d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c5207b993351ca6ca43404819043327b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,6 +102,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -134,9 +142,10 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,83 +156,143 @@ window.Quarto = {
     <span class="navbar-title">Mathematics of Data Science</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../content/01-machine-numbers.html"> 
-<span class="menu-text">Machine Numbers</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-compression" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Compression</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-compression">    
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---dct.html">
- <span class="dropdown-text">Discrete Cosine Transform</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---huffman.html">
- <span class="dropdown-text">Huffman Encoding</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-image-processing" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Image Processing</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-image-processing">    
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---contrast.html">
- <span class="dropdown-text">Contrast Enhancement via Histogram Equalization</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---denoising.html">
- <span class="dropdown-text">Denoising</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---edge-detection.html">
- <span class="dropdown-text">Edge Detection</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../content/04-high-dimensional-data.html"> 
-<span class="menu-text">High Dimensional Data</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../content/05-dimension-reduction.html"> 
-<span class="menu-text">Dimension Reduction</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clustering" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Clustering</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-clustering">    
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---graph-cuts.html">
- <span class="dropdown-text">Graph Cuts</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---svm.html">
- <span class="dropdown-text">Support Vector Machines</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/peter-gy" target="_blank">
+            Author
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/06-clustering---graph-cuts.html">Clustering</a></li><li class="breadcrumb-item"><a href="../content/06-clustering---svm.html">Support Vector Machines</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/01-machine-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Numbers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Compression</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---dct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Cosine Transform</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---huffman.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Huffman Encoding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Image Processing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---contrast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contrast Enhancement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---denoising.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Denoising</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---edge-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edge Detection</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/04-high-dimensional-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">High Dimensional Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/05-dimension-reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimension Reduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Clustering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---graph-cuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graph Cuts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---svm.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Support Vector Machines</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -242,7 +311,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/06-clustering---graph-cuts.html">Clustering</a></li><li class="breadcrumb-item"><a href="../content/06-clustering---svm.html">Support Vector Machines</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Support Vector Machines</h1>
 </div>
@@ -507,15 +576,16 @@ It overlays the decision boundary, the training points, and highlights the suppo
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    degree <span class="op">=</span> gr.Slider(</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        minimum<span class="op">=</span><span class="dv">1</span>, maximum<span class="op">=</span><span class="dv">10</span>, step<span class="op">=</span><span class="dv">1</span>, value<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"Degree (for Polynomial Kernel)"</span></span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    run_button <span class="op">=</span> gr.Button(<span class="st">"Run SVM"</span>)</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    plot_output <span class="op">=</span> gr.Plot(label<span class="op">=</span><span class="st">"Decision Boundary"</span>)</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    json_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"Classifier Parameters"</span>)</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    run_button.click(</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        fn<span class="op">=</span>run_kernel_svm,</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span>[dataset, kernel_type, gamma, degree],</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span>[plot_output, json_output],</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    plot_output <span class="op">=</span> gr.Plot(label<span class="op">=</span><span class="st">"Decision Boundary"</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    json_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"Classifier Parameters"</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    kwargs <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        fn<span class="op">=</span>run_kernel_svm,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        inputs<span class="op">=</span>[dataset, kernel_type, gamma, degree],</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        outputs<span class="op">=</span>[plot_output, json_output],</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    [component.change(<span class="op">**</span>kwargs) <span class="cf">for</span> component <span class="kw">in</span> [dataset, kernel_type, gamma, degree]]</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    demo.load(<span class="op">**</span>kwargs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="d75906a0" class="cell" data-execution_count="6">
@@ -524,7 +594,7 @@ It overlays the decision boundary, the training points, and highlights the suppo
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>demo.launch(pwa<span class="op">=</span><span class="va">True</span>, show_api<span class="op">=</span><span class="va">False</span>, show_error<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="b298df6b" class="cell">
+<div id="46cb73a6" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of this cell set dynamically in Quarto filter step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -751,16 +821,18 @@ with gr.Blocks(
     degree = gr.Slider(
         minimum=1, maximum=10, step=1, value=3, label="Degree (for Polynomial Kernel)"
     )
-    run_button = gr.Button("Run SVM")
     plot_output = gr.Plot(label="Decision Boundary")
     json_output = gr.JSON(label="Classifier Parameters")
 
-    run_button.click(
+    kwargs = dict(
         fn=run_kernel_svm,
         inputs=[dataset, kernel_type, gamma, degree],
         outputs=[plot_output, json_output],
     )
+    [component.change(**kwargs) for component in [dataset, kernel_type, gamma, degree]]
+    demo.load(**kwargs)
 demo.launch(pwa=True, show_api=False, show_error=True)
+
 
         </gradio-lite>
     </div>
@@ -1189,6 +1261,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../content/06-clustering---graph-cuts.html" class="pagination-link" aria-label="Graph Cuts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Graph Cuts</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

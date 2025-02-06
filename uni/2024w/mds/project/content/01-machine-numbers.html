@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../content/02-data-compression---dct.html" rel="next">
+<link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-22381ab97ffb8a420d3841344730e94d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c5207b993351ca6ca43404819043327b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,6 +102,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -134,9 +142,10 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,83 +156,143 @@ window.Quarto = {
     <span class="navbar-title">Mathematics of Data Science</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="../content/01-machine-numbers.html" aria-current="page"> 
-<span class="menu-text">Machine Numbers</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-compression" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Data Compression</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-compression">    
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---dct.html">
- <span class="dropdown-text">Discrete Cosine Transform</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/02-data-compression---huffman.html">
- <span class="dropdown-text">Huffman Encoding</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-image-processing" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Image Processing</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-image-processing">    
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---contrast.html">
- <span class="dropdown-text">Contrast Enhancement via Histogram Equalization</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---denoising.html">
- <span class="dropdown-text">Denoising</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/03-image-processing---edge-detection.html">
- <span class="dropdown-text">Edge Detection</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../content/04-high-dimensional-data.html"> 
-<span class="menu-text">High Dimensional Data</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../content/05-dimension-reduction.html"> 
-<span class="menu-text">Dimension Reduction</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clustering" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Clustering</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-clustering">    
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---graph-cuts.html">
- <span class="dropdown-text">Graph Cuts</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../content/06-clustering---svm.html">
- <span class="dropdown-text">Support Vector Machines</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/peter-gy" target="_blank">
+            Author
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../content/01-machine-numbers.html">Machine Numbers</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/01-machine-numbers.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Machine Numbers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Compression</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---dct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discrete Cosine Transform</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/02-data-compression---huffman.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Huffman Encoding</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Image Processing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---contrast.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contrast Enhancement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---denoising.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Denoising</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/03-image-processing---edge-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edge Detection</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/04-high-dimensional-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">High Dimensional Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/05-dimension-reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimension Reduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Clustering</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---graph-cuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graph Cuts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../content/06-clustering---svm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Support Vector Machines</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -279,29 +348,27 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>This notebook is crafted to provide insights into how computers represent numbers, with a specific focus on three major types:</p>
+<p>This notebook provides insights into how computers represent numbers, with a specific focus on three major types:</p>
+<p><strong>Integers</strong></p>
+<p>We cover the representation of 64-bit signed integers and delve into the concept of overflow, where values exceed the maximum representable integer.</p>
+<p><strong>Rationals</strong></p>
+<p>Introduce rational numbers, conceptualized using fractions derived from 64-bit integers. Discuss encoding concepts for special cases like infinity.</p>
+<p><strong>Floating Point Numbers</strong></p>
+<p>A detailed look at the IEEE 754 double precision (64-bit) standard, covering:</p>
 <ul>
-<li><strong>Integers:</strong> We cover the representation of 64-bit signed integers and delve into the concept of overflow, where values exceed the maximum representable integer.</li>
-<li><strong>Rationals:</strong> Introduce rational numbers, conceptualized using fractions derived from 64-bit integers. Discuss encoding concepts for special cases like infinity.</li>
-<li><strong>Floating Point Numbers:</strong> A detailed look at the IEEE 754 double precision (64-bit) standard, covering:
-<ul>
-<li><p>The structure: Composed of 1 bit for the sign, 11 bits for the exponent, and 52 bits for the mantissa.</p></li>
-<li><p>The representation format:</p>
+<li>The structure: Composed of 1 bit for the sign, 11 bits for the exponent, and 52 bits for the mantissa.</li>
+<li>The representation format:</li>
+</ul>
 <p><span class="math display">\[
 \pm (1,\,a_1 a_2\ldots a_{52})_2 \cdot 2^\alpha = (-1)^s 2^\alpha\left(1+\sum_{k=1}^{52} a_k 2^{-k}\right),
 \]</span></p>
-<p>where <span class="math inline">\(s,\,a_k\in\{0,1\}\)</span> and exponent <span class="math inline">\(\alpha\in\{-1022,\ldots,1023\}\)</span> with special values for <span class="math inline">\(-1023\)</span> and <span class="math inline">\(1024\)</span>.</p></li>
-<li><p>The concept of <strong>machine precision</strong>:</p>
+<p>where <span class="math inline">\(s,\,a_k\in\{0,1\}\)</span> and exponent <span class="math inline">\(\alpha\in\{-1022,\ldots,1023\}\)</span> with special values for <span class="math inline">\(-1023\)</span> and <span class="math inline">\(1024\)</span>. - The concept of <strong>machine precision</strong>:</p>
 <p><span class="math display">\[
 \mathrm{eps}_{64} = 2^{-52}\approx 2.220446049250313 \times 10^{-16},
 \]</span></p>
-<p>defining the bounds of relative error when rounding real numbers.</p></li>
-<li><p><strong>Subnormal numbers:</strong> These provide extended range of representation near zero:</p>
-<p><span class="math display">\[
-2^{-1074}.
-\]</span></p></li>
-</ul></li>
-</ul>
+<p>defining the bounds of relative error when rounding real numbers.</p>
+<p><strong>Subnormal numbers</strong></p>
+<p>These provide extended range of representation near zero.</p>
 </section>
 <section id="python-implementation" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="python-implementation"><span class="header-section-number">2</span> Python Implementation</h2>
@@ -597,7 +664,6 @@ Adjust the exponent range to visualize the gap sizes between consecutive floatin
 <span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Below, we build the Gradio interface with multiple tabs to interact with the different demonstrations.</p>
 <div id="9e85e606" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
@@ -616,46 +682,53 @@ Adjust the exponent range to visualize the gap sizes between consecutive floatin
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                step<span class="op">=</span><span class="dv">1</span>,</span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            )</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            plot_output <span class="op">=</span> gr.Plot(label<span class="op">=</span><span class="st">"Gap Distribution"</span>)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>            plot_button <span class="op">=</span> gr.Button(<span class="st">"Plot Gap Distribution"</span>)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            plot_button.click(</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_gap_distribution, inputs<span class="op">=</span>n_slider, outputs<span class="op">=</span>plot_output</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>            n_slider.change(</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_gap_distribution, inputs<span class="op">=</span>n_slider, outputs<span class="op">=</span>plot_output</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            demo.load(fn<span class="op">=</span>gradio_gap_distribution, inputs<span class="op">=</span>n_slider, outputs<span class="op">=</span>plot_output)</span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.TabItem(<span class="st">"Integer Representation"</span>):</span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>            gr.Markdown(<span class="st">"### 64-bit Integer Representation"</span>)</span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>            int_input <span class="op">=</span> gr.Number(label<span class="op">=</span><span class="st">"Enter an integer"</span>, value<span class="op">=</span><span class="dv">42</span>, precision<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>            int_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"64-bit Representation"</span>)</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>            int_button <span class="op">=</span> gr.Button(<span class="st">"Show Bitstring"</span>)</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>            int_button.click(</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_int_representation, inputs<span class="op">=</span>int_input, outputs<span class="op">=</span>int_output</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.TabItem(<span class="st">"Rational Demonstration"</span>):</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>            gr.Markdown(<span class="st">"### Rational Numbers"</span>)</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>            p_input <span class="op">=</span> gr.Number(label<span class="op">=</span><span class="st">"Numerator (p)"</span>, value<span class="op">=</span><span class="dv">2</span>, precision<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>            q_input <span class="op">=</span> gr.Number(label<span class="op">=</span><span class="st">"Denominator (q)"</span>, value<span class="op">=</span><span class="dv">3</span>, precision<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>            rat_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"Rational Output"</span>)</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>            rat_button <span class="op">=</span> gr.Button(<span class="st">"Compute Rational"</span>)</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>            rat_button.click(</span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_rational, inputs<span class="op">=</span>[p_input, q_input], outputs<span class="op">=</span>rat_output</span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.TabItem(<span class="st">"Floating Point Representation"</span>):</span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>            gr.Markdown(<span class="st">"### IEEE 754 Double Precision Breakdown"</span>)</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>            float_input <span class="op">=</span> gr.Number(</span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="st">"Enter a floating point number"</span>, value<span class="op">=</span><span class="fl">3.14159</span></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>            float_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"IEEE 754 Components"</span>)</span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>            float_button <span class="op">=</span> gr.Button(<span class="st">"Show Floating Point Bits"</span>)</span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>            float_button.click(</span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_float_representation, inputs<span class="op">=</span>float_input, outputs<span class="op">=</span>float_output</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>            int_input.change(</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_int_representation, inputs<span class="op">=</span>int_input, outputs<span class="op">=</span>int_output</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>            demo.load(</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_int_representation, inputs<span class="op">=</span>int_input, outputs<span class="op">=</span>int_output</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.TabItem(<span class="st">"Rational Demonstration"</span>):</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>            gr.Markdown(<span class="st">"### Rational Numbers"</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>            p_input <span class="op">=</span> gr.Number(label<span class="op">=</span><span class="st">"Numerator (p)"</span>, value<span class="op">=</span><span class="dv">2</span>, precision<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>            q_input <span class="op">=</span> gr.Number(label<span class="op">=</span><span class="st">"Denominator (q)"</span>, value<span class="op">=</span><span class="dv">3</span>, precision<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>            rat_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"Rational Output"</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>            p_input.change(</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_rational, inputs<span class="op">=</span>[p_input, q_input], outputs<span class="op">=</span>rat_output</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>            q_input.change(</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_rational, inputs<span class="op">=</span>[p_input, q_input], outputs<span class="op">=</span>rat_output</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>            demo.load(fn<span class="op">=</span>gradio_rational, inputs<span class="op">=</span>[p_input, q_input], outputs<span class="op">=</span>rat_output)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.TabItem(<span class="st">"Floating Point Representation"</span>):</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>            gr.Markdown(<span class="st">"### IEEE 754 Double Precision Breakdown"</span>)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>            float_input <span class="op">=</span> gr.Number(</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="st">"Enter a floating point number"</span>, value<span class="op">=</span><span class="fl">3.14159</span></span>
 <span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.TabItem(<span class="st">"Machine Epsilon and Subnormals"</span>):</span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>            gr.Markdown(<span class="st">"### Machine Precision and Next Float"</span>)</span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>            eps_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"Machine Epsilon and Next Float"</span>)</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>            eps_button <span class="op">=</span> gr.Button(<span class="st">"Show Machine Epsilon and Next Float"</span>)</span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>            eps_button.click(fn<span class="op">=</span>gradio_machine_epsilon, inputs<span class="op">=</span>[], outputs<span class="op">=</span>eps_output)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>            float_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"IEEE 754 Components"</span>)</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>            float_input.change(</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_float_representation, inputs<span class="op">=</span>float_input, outputs<span class="op">=</span>float_output</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>            demo.load(</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>                fn<span class="op">=</span>gradio_float_representation, inputs<span class="op">=</span>float_input, outputs<span class="op">=</span>float_output</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.TabItem(<span class="st">"Machine Epsilon and Subnormals"</span>):</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>            gr.Markdown(<span class="st">"### Machine Precision and Next Float"</span>)</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>            eps_output <span class="op">=</span> gr.JSON(label<span class="op">=</span><span class="st">"Machine Epsilon and Next Float"</span>)</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>            eps_button <span class="op">=</span> gr.Button(<span class="st">"Show Machine Epsilon and Next Float"</span>)</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>            eps_button.click(fn<span class="op">=</span>gradio_machine_epsilon, inputs<span class="op">=</span>[], outputs<span class="op">=</span>eps_output)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="895ae4d1" class="cell" data-execution_count="10">
@@ -664,7 +737,7 @@ Adjust the exponent range to visualize the gap sizes between consecutive floatin
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>demo.launch(pwa<span class="op">=</span><span class="va">True</span>, show_api<span class="op">=</span><span class="va">False</span>, show_error<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="8a95d562" class="cell">
+<div id="81f51790" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output of this cell set dynamically in Quarto filter step</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -905,17 +978,19 @@ with gr.Blocks(css="""gradio-app {background: #222222 !important}""") as demo:
                 step=1,
             )
             plot_output = gr.Plot(label="Gap Distribution")
-            plot_button = gr.Button("Plot Gap Distribution")
-            plot_button.click(
+            n_slider.change(
                 fn=gradio_gap_distribution, inputs=n_slider, outputs=plot_output
             )
+            demo.load(fn=gradio_gap_distribution, inputs=n_slider, outputs=plot_output)
 
         with gr.TabItem("Integer Representation"):
             gr.Markdown("### 64-bit Integer Representation")
             int_input = gr.Number(label="Enter an integer", value=42, precision=0)
             int_output = gr.JSON(label="64-bit Representation")
-            int_button = gr.Button("Show Bitstring")
-            int_button.click(
+            int_input.change(
+                fn=gradio_int_representation, inputs=int_input, outputs=int_output
+            )
+            demo.load(
                 fn=gradio_int_representation, inputs=int_input, outputs=int_output
             )
 
@@ -924,10 +999,13 @@ with gr.Blocks(css="""gradio-app {background: #222222 !important}""") as demo:
             p_input = gr.Number(label="Numerator (p)", value=2, precision=0)
             q_input = gr.Number(label="Denominator (q)", value=3, precision=0)
             rat_output = gr.JSON(label="Rational Output")
-            rat_button = gr.Button("Compute Rational")
-            rat_button.click(
+            p_input.change(
                 fn=gradio_rational, inputs=[p_input, q_input], outputs=rat_output
             )
+            q_input.change(
+                fn=gradio_rational, inputs=[p_input, q_input], outputs=rat_output
+            )
+            demo.load(fn=gradio_rational, inputs=[p_input, q_input], outputs=rat_output)
 
         with gr.TabItem("Floating Point Representation"):
             gr.Markdown("### IEEE 754 Double Precision Breakdown")
@@ -935,8 +1013,10 @@ with gr.Blocks(css="""gradio-app {background: #222222 !important}""") as demo:
                 label="Enter a floating point number", value=3.14159
             )
             float_output = gr.JSON(label="IEEE 754 Components")
-            float_button = gr.Button("Show Floating Point Bits")
-            float_button.click(
+            float_input.change(
+                fn=gradio_float_representation, inputs=float_input, outputs=float_output
+            )
+            demo.load(
                 fn=gradio_float_representation, inputs=float_input, outputs=float_output
             )
 
@@ -1374,6 +1454,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../content/02-data-compression---dct.html" class="pagination-link" aria-label="Discrete Cosine Transform">
+        <span class="nav-page-text">Discrete Cosine Transform</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
